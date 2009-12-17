@@ -1,0 +1,122 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3c.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>MorphElements Demo</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<script type="text/javascript" src="./js/mootools-1.2.4-core.js"></script>
+	<script type="text/javascript" src="../Source/Fx.MorphElement.js"></script>
+	<script>
+		window.addEvent('domready', function(){
+			
+			$('me1').get('morphElement', {
+				wrap: true,
+				width: '200px',
+				height: '200px',
+				FxTransition:  {
+					transition: 'linear',
+					duration: 'long'
+				},
+				hideOnInitialize: true
+			});
+			
+			var transition = [
+				'select',
+				'linear',
+				'quad:in', 'quad:out', 'quad:in:out',
+				'cubic:in', 'cubic:out', 'cubic:in:out',
+				'quart:in', 'quart:out', 'quart:in:out',
+				'quint:in', 'quint:out', 'quint:in:out',
+				'expo:in', 'expo:out', 'expo:in:out',
+				'circ:in', 'circ:out', 'circ:in:out',
+				'sine:in', 'sine:out', 'sine:in:out',
+				'back:in', 'back:out', 'back:in:out',
+				'bounce:in', 'bounce:out', 'bounce:in:out',
+				'elastic:in', 'elastic:out', 'elastic:in:out'
+			];
+			
+			var duration = [
+				'select',
+				'short', 'normal', 'long'
+			];
+			
+			var morphElementFx = [
+				'blind:up', 'blind:down', 'blind:left', 'blind:right',
+				'slide:up', 'slide:down', 'slide:left', 'slide:right',
+				'fade'
+			];
+				
+			morphElementFx.each(function(item){
+				var li = new Element('li').inject($('effect'));
+				var a = new Element('a', {
+					id: item,
+					href: '#',
+					text: item,
+					events: {
+						click: function(e){
+							e.stop();
+							$('me1').morphElement(item);
+						}
+					}
+				}).inject(li);
+			});
+			
+		});
+	</script>
+	<style>
+	body {
+		margin: 0px;
+		padding: 0px;
+		border: 0px;
+	}
+	h1 {
+		margin: 10px;
+	}
+	
+	.morphElementWrap {
+		position:relative;
+		width: 200px;
+		height: 200px;
+		background-color: #0f0;
+		overflow:hidden;
+		margin:0 auto;
+		padding:0px;
+	}
+	
+	#me1 {
+		position:absolute;
+		width: 200px;
+		height: 200px;
+		background-color: #f00;
+		margin:0px;
+		padding:0px;
+		overflow:auto;
+	}
+	
+	</style>
+</head>
+<body>
+	<!-- content starts here -->
+	
+	<h1>MorphElements Demo</h1>
+	<ul id="effect">
+	</ul>
+	
+	<div id="me1">
+		<p>Some Text</p>
+			<p>Some Text</p>
+			<p>Some Text</p>
+			<p>Some Text</p>
+			<p>Some Text</p>
+			<p>Some Text</p>
+			<p>Some Text</p>
+			<p>Some Text</p>
+			<p>Some Text</p>
+			<p>Some Text</p>
+			<p>Some Text</p>
+	</div>
+
+</body>
+</html>
