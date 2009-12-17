@@ -41,3 +41,5 @@ Requirements
 
 ### Fx.MorphElement Method: set
 -------------------------------
+
+[Fx.Morph]: http://www.mootools.net/docs/Fx/Fx.Morph
