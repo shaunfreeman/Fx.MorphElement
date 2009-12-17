@@ -19,12 +19,17 @@ Fx.MorphElement = new Class({
 		wrap: true,
 		wrapClass: 'morphElementWrap',
 		FxTransition : $empty,
-		hideOnInitialize: true
+		hideOnInitialize: true,
+		width: null,
+		height: null
 	},
 	
 	initialize: function(el, options) {
 		this.setOptions(options);
 		this.parent(el, options);
+		
+		if (!this.options.width) this.setOptions({width: this.element.getWidth()});
+		if (!this.options.height) this.setOptions({height: this.element.getHeight()});
 		
 		if (this.options.wrap) this.setup();
 		
@@ -46,7 +51,7 @@ Fx.MorphElement = new Class({
 		}).wraps(this.element);
 	},
 	
-	getFx: function(fx) {
+	start: function(fx) {
 		
 		var flag = this.element.retrieve('fxEffect:flag', 'show');
 		
@@ -77,11 +82,9 @@ Fx.MorphElement = new Class({
 			styles[hashIndex] = hash
 		}.bind(this));
 		
-		styles = fxEffect.start(styles);
-		
 		this.element.store('fxEffect:flag', (flag == 'hide') ? 'show' : 'hide');
 		
-		return styles;
+		return this.parent(styles);
 	}
 });
 
@@ -106,7 +109,7 @@ Element.Properties.morphElement = {
 Element.implement({
 
 	morphElement: function(props){
-		this.get('morphElement').getFx(props);
+		this.get('morphElement').start(props);
 		return this;
 	}
 

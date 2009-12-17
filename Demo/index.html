@@ -10,8 +10,8 @@
 	<script type="text/javascript" src="../Source/Fx.MorphElement.js"></script>
 	<script>
 		window.addEvent('domready', function(){
-			
-			$('me1').get('morphElement', {
+			/*
+			var m = new Fx.MorphElement($('me1'), {
 				wrap: true,
 				width: '200px',
 				height: '200px',
@@ -21,6 +21,7 @@
 				},
 				hideOnInitialize: true
 			});
+			*/
 			
 			var transition = [
 				'select',
@@ -48,6 +49,15 @@
 				'fade'
 			];
 				
+			$('me1').set('morphElement', {
+				onStart: function() {
+					this.element.setStyle('overflow', 'hidden');
+				},
+				onComplete: function() {
+					this.element.setStyle('overflow', 'auto');
+				}
+			});
+				
 			morphElementFx.each(function(item){
 				var li = new Element('li').inject($('effect'));
 				var a = new Element('a', {
@@ -57,7 +67,7 @@
 					events: {
 						click: function(e){
 							e.stop();
-							$('me1').morphElement(item);
+							$('me1').morphElement(item)
 						}
 					}
 				}).inject(li);
@@ -76,21 +86,15 @@
 	}
 	
 	.morphElementWrap {
-		position:relative;
-		width: 200px;
-		height: 200px;
-		background-color: #0f0;
-		overflow:hidden;
 		margin:0 auto;
 		padding:0px;
 	}
 	
 	#me1 {
-		position:absolute;
 		width: 200px;
 		height: 200px;
 		background-color: #f00;
-		margin:0px;
+		margin:0 auto;
 		padding:0px;
 		overflow:auto;
 	}
