@@ -1,5 +1,7 @@
 Fx.MorphElement
-====================================
+===============
+
+Fx.MorphElement is a class that extends Fx.Morph to add an easy way to add some common effects to any element using CSS Styles.
 
 Inherits methods, properties, options and events from [Fx.Morph][].
 
