@@ -60,7 +60,7 @@ Morphing using an object:
 
 ### See Also:
 
-- Fx][]
+- [Fx][]
 - [Fx.Morph][]
 
 ### Fx.MorphElement Method: start
