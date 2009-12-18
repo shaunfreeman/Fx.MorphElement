@@ -7,6 +7,77 @@
 
 	<title>vincentbluff/Fx.MorphElement @ GitHub</title>
 	
+	<script src="http://ajax.googleapis.com/ajax/libs/mootools/1.2.4/mootools-yui-compressed.js"></script>
+	<script src="http://github.com/vincentbluff/Fx.MorphElement/raw/master/Source/Fx.MorphElement.js"></script>
+	
+	<script>
+		window.addEvent('domready', function(){
+			/*
+			var m = new Fx.MorphElement($('me1'), {
+				wrap: true,
+				width: '200px',
+				height: '200px',
+				FxTransition:  {
+					transition: 'linear',
+					duration: 'long'
+				},
+				hideOnInitialize: true
+			});
+			*/
+			
+			var transition = [
+				'select',
+				'linear',
+				'quad:in', 'quad:out', 'quad:in:out',
+				'cubic:in', 'cubic:out', 'cubic:in:out',
+				'quart:in', 'quart:out', 'quart:in:out',
+				'quint:in', 'quint:out', 'quint:in:out',
+				'expo:in', 'expo:out', 'expo:in:out',
+				'circ:in', 'circ:out', 'circ:in:out',
+				'sine:in', 'sine:out', 'sine:in:out',
+				'back:in', 'back:out', 'back:in:out',
+				'bounce:in', 'bounce:out', 'bounce:in:out',
+				'elastic:in', 'elastic:out', 'elastic:in:out'
+			];
+			
+			var duration = [
+				'select',
+				'short', 'normal', 'long'
+			];
+			
+			var morphElementFx = [
+				'blind:up', 'blind:down', 'blind:left', 'blind:right',
+				'slide:up', 'slide:down', 'slide:left', 'slide:right',
+				'fade'
+			];
+				
+			$('me1').set('morphElement', {
+				onStart: function() {
+					this.element.setStyle('overflow', 'hidden');
+				},
+				onComplete: function() {
+					this.element.setStyle('overflow', 'auto');
+				}
+			});
+				
+			morphElementFx.each(function(item){
+				var li = new Element('li').inject($('effect'));
+				var a = new Element('a', {
+					id: item,
+					href: '#',
+					text: item,
+					events: {
+						click: function(e){
+							e.stop();
+							$('me1').morphElement(item)
+						}
+					}
+				}).inject(li);
+			});
+			
+		});
+	</script>
+	
 	<style type="text/css">
 		body {
   		margin-top: 1.0em;
@@ -29,6 +100,18 @@
 		pre { background: #000; color: #fff; padding: 15px;}
     hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
     .footer { text-align:center; padding-top:30px; font-style: italic; }
+	.morphElementWrap {
+		margin:0 auto;
+		padding:0px;
+	}
+	#me1 {
+		width: 200px;
+		height: 200px;
+		background-color: #f00;
+		margin:0 auto;
+		padding:0px;
+		overflow:auto;
+	}
 	</style>
 	
 </head>
@@ -51,14 +134,23 @@
     <div class="description">
       A MooTools Class to create some morph effects to any DOM element
     </div>
+    
+    <h1>MorphElements Demo</h1>
+	<ul id="effect">
+	</ul>
+	
+	<div id="me1">
+		<p>Div element</p>
+	</div>
+
 
     <h2>Authors</h2>
-<p>vincentbluff (shaun@shaunfreeman.co.uk)
-<br/>
-<br/>      </p>
-<h2>Contact</h2>
-<p>Shaun Freeman (shaun@shaunfreeman.co.uk)
-<br/>      </p>
+		<p>vincentbluff (shaun@shaunfreeman.co.uk)
+		<br/>
+		<br/>      </p>
+		<h2>Contact</h2>
+		<p>Shaun Freeman (shaun@shaunfreeman.co.uk)
+		<br/>      </p>
 
 
     <h2>Download</h2>
