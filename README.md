@@ -16,6 +16,9 @@ Requirements
 
 - [Fx.Morph][]
 
+How to use
+----------
+
 ### Syntax
 	#JS
 	var myFx = new Fx.MorphElement(el, {options});
