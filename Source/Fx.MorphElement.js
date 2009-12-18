@@ -7,7 +7,9 @@ requires:
 	core:1.2.4:
 		- Fx.Morph
 		- Fx.Transitions
-provides: [Fx.MorphElement, Fx.MorphElement.Effects]
+provides: 
+	- Fx.MorphElement
+	- Fx.MorphElement.Effects
 license: MIT-style license
 version: 1.0
 ...
