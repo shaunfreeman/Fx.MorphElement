@@ -4,7 +4,9 @@ name: Fx.MorphElement.js
 description: Creates a morph effect on any element.
 authors: Shaun Freeman
 requires:
-core/1.2.4: [Fx.Morph, Fx.Transitions]
+	core/1.2.4:
+		- Fx.Morph
+		- Fx.Transitions
 provides: [Fx.MorphElement, Fx.MorphElement.Effects]
 license: MIT-style license
 version: 1.0
@@ -118,9 +120,7 @@ Element.implement({
 Fx.MorphElement.Effects = $H({
 	blind: {
 		up: {
-			hide: {
-				'height': ['{height}', 0]
-			},
+			hide: {'height': ['{height}', 0]},
 			show: {
 				'margin-top': ['{height}', 0],
 				'height': [0, '{height}']
@@ -131,14 +131,10 @@ Fx.MorphElement.Effects = $H({
 				'margin-top': ['{height}'],
 				'height': [0]
 			},
-			show: {
-				'height': [0, '{height}']
-			}
+			show: {'height': [0, '{height}']}
 		},
 		left: {
-			hide: {
-				'width': ['{width}', 0]
-			},
+			hide: {'width': ['{width}', 0]},
 			show: {
 				'margin-left': ['{width}', 0],
 				'width': [0, '{width}']
@@ -149,9 +145,7 @@ Fx.MorphElement.Effects = $H({
 				'margin-left': ['{width}'],
 				'width': [0]
 			},
-			show: {
-				'width': [0, '{width}']
-			}
+			show: {'width': [0, '{width}']}
 		}
 	},
 	slide: {
@@ -161,9 +155,7 @@ Fx.MorphElement.Effects = $H({
 				'width': ['{width}'],
 				'height': ['{height}']
 			},
-			show: {
-				'margin-top': ['{height}', 0]
-			}
+			show: {'margin-top': ['{height}', 0]}
 		},
 		down: {
 			hide: {
@@ -171,9 +163,7 @@ Fx.MorphElement.Effects = $H({
 				'width': ['{width}'],
 				'height': ['{height}']
 			},
-			show: {
-				'margin-top': ['-{height}', 0]
-			}
+			show: {'margin-top': ['-{height}', 0]}
 		},
 		left: {
 			hide: {
@@ -181,9 +171,7 @@ Fx.MorphElement.Effects = $H({
 				'width': ['{width}'],
 				'height': ['{height}']
 			},
-			show: {
-				'margin-left': ['{width}', 0]
-			}
+			show: {'margin-left': ['{width}', 0]}
 		},
 		right: {
 			hide: {
@@ -191,17 +179,11 @@ Fx.MorphElement.Effects = $H({
 				'width': ['{width}'],
 				'height': ['{height}']
 			},
-			show: {
-				'margin-left': ['-{width}', 0]
-			}
+			show: {'margin-left': ['-{width}', 0]}
 		}
 	},
 	fade: {
-		hide: {
-			'opacity': [1, 0]
-		},
-		show: {
-			'opacity': [0, 1]
-		}
+		hide: {'opacity': [1, 0]},
+		show: {'opacity': [0, 1]}
 	}
 });
