@@ -28,29 +28,29 @@ Fx.MorphElement = new Class({
 	
 	initialize: function(el, options) {
 		this.setOptions(options);
-		this.parent(el, options);
+		this.parent(el, this.options.FxTransition);
 		
 		if (!this.options.width) this.setOptions({width: this.element.getWidth()});
 		if (!this.options.height) this.setOptions({height: this.element.getHeight()});
 		
-		if (this.options.wrap) this.setup();
+		if (this.options.wrap) {
+			this.wrap = new Element('div', {
+				'id': this.element.get('id') + '_wrap',
+				'class': this.options.wrapClass,
+				'styles': {
+					'height': this.options.height,
+					'width': this.options.width,
+					'overflow': 'hidden'
+				}
+			}).wraps(this.element);
+		}
+		
+		this.element.setStyle('overflow', 'auto');
 		
 		if (this.options.hideOnInitialize) {
 			this.element.store('fxEffect:flag', 'show');
-			this.element.fade('hide');
+			this.start('fade');
 		}
-	},
-	
-	setup: function() {
-		var wrap = new Element('div', {
-			'id': this.element.get('id') + '_wrap',
-			'class': this.options.wrapClass,
-			'styles': {
-				'height': this.options.height,
-				'width': this.options.width,
-				'overflow': 'hidden'
-			}
-		}).wraps(this.element);
 	},
 	
 	start: function(fx) {
@@ -64,8 +64,6 @@ Fx.MorphElement = new Class({
 			'height': [this.options.height, this.options.height],
 			'opacity': [1, 1]
 		};
-		
-		fxEffect = this.element.get('morph', this.options.FxTransition);
 		
 		fx = fx.split(':');
 		
