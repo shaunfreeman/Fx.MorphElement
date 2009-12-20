@@ -22,7 +22,6 @@
 				hideOnInitialize: true
 			});
 			*/
-			
 			var transition = [
 				'select',
 				'linear',
@@ -49,7 +48,7 @@
 				'fade'
 			];
 				
-			$('me1').set('morphElement', {
+			$('me1').get('morphElement', {
 				onStart: function() {
 					this.element.setStyle('overflow', 'hidden');
 				},

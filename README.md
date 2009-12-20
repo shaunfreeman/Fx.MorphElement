@@ -34,7 +34,7 @@ How to use
 - wrap: (*boolean*),  whether to wrap the element or not. (Default: true)
 - wrapClass: (*string*), The CSS Class name of the element wrap. (Default: 'morphElementWrap')
 - FxTransition : An Fx.Transitions (*object*). see MooTools [Fx][] for options. (Default: {transition: 'linear', duration, 'long'}),
-- hideOnInitialize: (*boolean*),  whether to hide the element when the class is initialize or not. (Default: true)
+- hideOnInitialize: (*mixed*),  whether to hide the element when the class is initialize using a style from Fx.MorphElement.Effects. (Default: false)
 
 ### Returns:
 
@@ -53,7 +53,7 @@ Morphing using an object:
 			transition: 'linear',
 			duration: 'long'
 		},
-		hideOnInitialize: true
+		hideOnInitialize: 'slide:right'
 	});
 	
 	myFx.start('slide:right');
@@ -92,7 +92,7 @@ Executes a transition from the Fx.MorphElement.Effects (*object*).
 			transition: 'linear',
 			duration: 'long'
 		},
-		hideOnInitialize: true
+		hideOnInitialize: 'slide:up'
 	});
 
 	myEffects.start('slide:up');
@@ -131,7 +131,7 @@ Sets a default Fx.MorphElement instance for an Element.
 			transition: 'bounce:out'
 		}
 	});
-	el.morph('slide:down');
+	el.morphElement('slide:down');
 
 ### Getter
 
@@ -158,7 +158,7 @@ Gets the default Fx.MorphElement instance for the Element.
 			transition: 'bounce:out'
 		}
 	});
-	el.morph('blind:left');
+	el.morphElement('blind:left');
 	el.get('morphElement'); //The Fx.MorphElement instance.
 
 Native: Element
@@ -172,7 +172,7 @@ Animates an Element given the properties passed in.
 ### Syntax:
 
 	#JS
-	myElement.morph(properties);
+	myElement.morphElement(properties);
 
 ### Arguments:
 
@@ -185,10 +185,10 @@ Animates an Element given the properties passed in.
 ### Example:
 
 	#JS
-	$('myElement').morph('slide:left');
+	$('myElement').morphElement('slide:left');
 
-Hash: Fx.MorphElement.Effects
-=============================
+Fx.MorphElement.Effects
+=======================
 
 A Hash (*object*) that holds all the styles for the effect to transition.
 

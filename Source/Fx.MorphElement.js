@@ -9,7 +9,7 @@ requires:
     - Fx.Transitions
 provides: [Fx.MorphElement, Fx.MorphElement.Effects]
 license: MIT-style license
-version: 1.0.1
+version: 1.0.2
 ...
 */
 
@@ -21,7 +21,7 @@ Fx.MorphElement = new Class({
 		wrap: true,
 		wrapClass: 'morphElementWrap',
 		FxTransition : $empty,
-		hideOnInitialize: true,
+		hideOnInitialize: false,
 		width: null,
 		height: null
 	},
@@ -47,15 +47,18 @@ Fx.MorphElement = new Class({
 		
 		this.element.setStyle('overflow', 'auto');
 		
+		this.element.store('fxEffect:flag', 'hide');
+		
 		if (this.options.hideOnInitialize) {
-			this.element.store('fxEffect:flag', 'show');
-			this.start('fade');
+			this.start(this.options.hideOnInitialize);
+		} else {
+			this.set({'opacity': [1,1]});
 		}
 	},
 	
 	start: function(fx) {
 		
-		var flag = this.element.retrieve('fxEffect:flag', 'show');
+		var flag = this.element.retrieve('fxEffect:flag');
 		
 		var styles = {
 			'margin-top': [0, 0],
