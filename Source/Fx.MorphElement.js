@@ -47,11 +47,11 @@ Fx.MorphElement = new Class({
 		
 		this.element.setStyle('overflow', 'auto');
 		
-		this.element.store('fxEffect:flag', 'hide');
-		
 		if (this.options.hideOnInitialize) {
+			this.element.store('fxEffect:flag', 'hide');
 			this.start(this.options.hideOnInitialize);
 		} else {
+			this.element.store('fxEffect:flag', 'show');
 			this.set({'opacity': [1,1]});
 		}
 	},
