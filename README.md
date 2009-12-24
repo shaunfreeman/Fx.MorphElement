@@ -25,7 +25,7 @@ How to use
 
 ### Arguments
 
-1. el - (*element*) the id of the element or the eleemnt itself.
+1. el - (*element*) the id of the element or the element itself.
 2. options - (*options*) a key/value set of options.
 
 ### Options
