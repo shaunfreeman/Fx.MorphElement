@@ -5,7 +5,7 @@ Fx.MorphElement is a class that extends Fx.Morph to add an easy way to add some 
 
 Inherits methods, properties, options and events from [Fx.Morph][].
 
-![Screenshot](http://github.com/vincentbluff/Fx.MorphElement/raw/master/screenshot.png)
+![Screenshot](http://github.com/shaunfreeman/Fx.MorphElement/raw/master/screenshot.png)
 
 Requirements
 ------------
